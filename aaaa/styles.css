@@ -1,0 +1,225 @@
+
+body {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff7582);
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.contenido-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.header-imagen img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.seccion-derecha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 30px;
+}
+
+.mensaje {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    color: #000;
+}
+
+.mensaje h1 {
+    font-size: 3em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.mensaje p {
+    font-size: 1.5em;
+    margin-top: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.particulas-petalos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particulas-petalos div {
+    position: absolute;
+    background-color: #ffb6c1;
+    border-radius: 50%;
+    opacity: 0;
+    animation: flotarPeticulo 8s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+.particulas-petalos div:nth-child(even) { width: 15px; height: 15px; }
+.particulas-petalos div:nth-child(odd) { width: 10px; height: 10px; }
+.particulas-petalos div:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particulas-petalos div:nth-child(2) { left: 20%; animation-delay: 1s; }
+.particulas-petalos div:nth-child(3) { left: 30%; animation-delay: 2s; }
+.particulas-petalos div:nth-child(4) { left: 40%; animation-delay: 3s; }
+.particulas-petalos div:nth-child(5) { left: 50%; animation-delay: 4s; }
+.particulas-petalos div:nth-child(6) { left: 60%; animation-delay: 5s; }
+.particulas-petalos div:nth-child(7) { left: 70%; animation-delay: 6s; }
+.particulas-petalos div:nth-child(8) { left: 80%; animation-delay: 7s; }
+.particulas-petalos div:nth-child(9) { left: 90%; animation-delay: 0.5s; }
+.particulas-petalos div:nth-child(10) { left: 5%; animation-delay: 3.5s; }
+
+@keyframes flotarPeticulo {
+    0% { transform: translateY(100%) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100%) rotate(360deg); opacity: 0; }
+}
+
+.contenedor-flores {
+    display: flex;
+    gap: 40px;
+    margin-top: 0;
+}
+
+.flor {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.flor:nth-child(1) { animation-delay: 0s; }
+.flor:nth-child(2) { animation-delay: 1.5s; }
+
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+.petalo {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #ff69b4;
+    border-radius: 50% 50% 50% 50%;
+    transform-origin: 50% 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.petalo-1 { top: 0px; left: 32.5px; transform: rotate(0deg); }
+.petalo-2 { top: 15px; left: 67.5px; transform: rotate(51.4deg); }
+.petalo-3 { top: 50px; left: 70px; transform: rotate(102.8deg); }
+.petalo-4 { top: 70px; left: 32.5px; transform: rotate(154.2deg); }
+.petalo-5 { top: 50px; left: -5px; transform: rotate(205.6deg); }
+.petalo-6 { top: 15px; left: 0px; transform: rotate(257deg); }
+.petalo-7 { top: 35px; left: 32.5px; transform: rotate(308.4deg); }
+
+.centro-flor {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffd700;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+    .contenido-principal {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-imagen img {
+        max-width: 90%;
+    }
+    
+    .seccion-derecha {
+        flex-direction: column-reverse;
+        text-align: center;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    .mensaje {
+        max-width: 90%;
+    }
+
+    .mensaje h1 {
+        font-size: 2em;
+    }
+    
+    .mensaje p {
+        font-size: 1em;
+    }
+
+    .contenedor-flores {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .flor {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .petalo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .petalo-1 { top: 0px; left: 25px; }
+    .petalo-2 { top: 10px; left: 50px; }
+    .petalo-3 { top: 35px; left: 52px; }
+    .petalo-4 { top: 55px; left: 25px; }
+    .petalo-5 { top: 35px; left: -2px; }
+    .petalo-6 { top: 10px; left: 0px; }
+    .petalo-7 { top: 25px; left: 25px; }
+
+    .centro-flor {
+        width: 30px;
+        height: 30px;
+        top: 25px;
+        left: 25px;
+    }
+}
